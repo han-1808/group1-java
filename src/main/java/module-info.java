@@ -1,4 +1,4 @@
-module org.example.bookstore {
+module org.group1.bookstore {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -9,7 +9,10 @@ module org.example.bookstore {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires static lombok;
 
-    opens org.example.bookstore to javafx.fxml;
-    exports org.example.bookstore;
+    opens org.group1.bookstore to javafx.fxml;
+    exports org.group1.bookstore;
+    exports org.group1.bookstore.controller;
+    opens org.group1.bookstore.controller to javafx.fxml;
 }
