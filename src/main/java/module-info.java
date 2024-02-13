@@ -10,6 +10,7 @@ module org.group1.bookstore {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires static lombok;
+    requires java.sql;
 
     opens org.group1.bookstore to javafx.fxml;
     exports org.group1.bookstore;

@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b9c49fe-d72a-4852-87a9-87bb634efcae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bookstore/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/BookStoreApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/bookstore/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/controller/BookStoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/bookstore/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/GenericDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/GenericDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/GenericDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/GenericDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/utils/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/utils/CommonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/UserView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.BookStoreApplication.executor": "Run",
+    "Application.BookStoreApplication.executor": "Debug",
     "Application.HelloApplication.executor": "Run",
     "Maven.book-store [clean,install].executor": "Run",
     "Maven.book-store [clean:clean].executor": "Run",
@@ -129,7 +129,7 @@
       <updated>1707743291525</updated>
       <workItem from="1707743292531" duration="15309000" />
       <workItem from="1707798715719" duration="13783000" />
-      <workItem from="1707813083824" duration="3536000" />
+      <workItem from="1707813083824" duration="10615000" />
     </task>
     <servers />
   </component>
@@ -146,16 +146,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/GenericDaoImpl.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

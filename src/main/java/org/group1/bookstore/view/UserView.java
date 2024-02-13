@@ -4,10 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -19,8 +17,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.group1.bookstore.controller.AdminController;
+import org.group1.bookstore.controller.EmployeeController;
+import org.group1.bookstore.dao.UserDao;
 import org.group1.bookstore.dao.impl.UserDaoImpl;
 import org.group1.bookstore.model.UserModel;
+import org.group1.bookstore.utils.CommonUtils;
 import org.group1.bookstore.utils.StyleUtils;
 
 @Getter
@@ -29,7 +31,7 @@ import org.group1.bookstore.utils.StyleUtils;
 @AllArgsConstructor
 public class UserView {
 
-    private UserDaoImpl userDao = new UserDaoImpl();
+    private UserDao userDao = new UserDaoImpl();
 
     private UserModel userModel = new UserModel();
 
@@ -62,17 +64,28 @@ public class UserView {
         Button loginBtn = new Button();
         loginBtn.setText("Login");
         loginBtn.getStyleClass().add("login-btn");
-        loginBtn.setOnAction(loginEvt(stage));
+        loginBtn.setOnAction(loginEvt(stage, usernameTxt, passwordTxt));
         grid.add(loginBtn, 1, 3);
-
         return vBox;
     }
 
-    private EventHandler<ActionEvent> loginEvt(Stage stage) {
+    private EventHandler<ActionEvent> loginEvt(Stage stage, TextField usernameTxt, PasswordField passwordTxt) {
         return new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                stage.close();
+                UserModel user = userDao.findByUsernameAndPassword(usernameTxt.getText(), passwordTxt.getText());
+                if (user == null) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setHeaderText("Tai khoan khong ton tai!");
+                    a.show();
+                    return;
+                }
+                if (CommonUtils.isAdmin(user.getRole())) {
+                    stage.setScene(new Scene(new AdminController(stage).getView(), 400, 400));
+                } else {
+                    stage.setScene(new Scene(new EmployeeController(stage).getView(), 400, 400));
+                }
+                stage.show();
             }
         };
     }
