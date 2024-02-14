@@ -2,9 +2,12 @@ package org.group1.bookstore.view;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -38,6 +41,7 @@ public class AdminView {
         TabPane tabPane = new TabPane();
         tabPane.getTabs().add(getTabViewAccount());
 
+        //TODO: Task 29:  View list of book authors. Search or sort on the list
         /*Tab tabViewBook = new Tab("View Book", new Label("View a list of books"));
         tabViewBook.setClosable(false);
         tabPane.getTabs().add(tabViewBook);*/
@@ -58,12 +62,24 @@ public class AdminView {
     private Tab getTabViewAccount() {
         Tab tabViewAccount = new Tab("View Account", new Label("View a list of user accounts"));
         tabViewAccount.setClosable(false);
-        tabViewAccount.setContent(getTableAccount());
+
+        Pane pane = new Pane();
+
+        TextField searchTxt = new TextField();
+        searchTxt.setPromptText("Nhập Tên đăng nhập hoặc Tên người dùng");
+        pane.getChildren().add(searchTxt);
+
+        TableView<UserModel> userTbl = getTableAccount(searchTxt);
+        userTbl.relocate(0, 30);
+
+        pane.getChildren().add(userTbl);
+
+        tabViewAccount.setContent(pane);
 
         return tabViewAccount;
     }
 
-    private TableView<UserModel> getTableAccount() {
+    private TableView<UserModel> getTableAccount(TextField searchTxt) {
         TableView<UserModel> userTbl = new TableView<>();
 
         TableColumn<UserModel, String> userNameCol = new TableColumn<>("Tên đăng nhập");
@@ -76,10 +92,31 @@ public class AdminView {
         statusCol.setCellValueFactory(user -> new SimpleStringProperty(Status.getStatusContent(user.getValue().getStatus())));
         roleCol.setCellValueFactory(user -> new SimpleStringProperty(Role.getRoleContent(user.getValue().getRole())));
 
-        List<UserModel> users = userDao.findAll();
-        userTbl.setItems(FXCollections.observableArrayList(users));
         userTbl.getColumns().setAll(userNameCol, fullNameCol, statusCol, roleCol);
 
+        List<UserModel> users = userDao.findAll();
+        FilteredList<UserModel> filteredData = new FilteredList<>(FXCollections.observableArrayList(users), p -> true);
+
+        searchTxt.textProperty().addListener((observable, oldValue, newValue) -> filteredData.setPredicate(user -> {
+            // If filter text is empty, display all users.
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+
+            // Compare first name and last name of every user with filter text.
+            String lowerCaseFilter = newValue.toLowerCase().trim();
+
+            if (user.getUsername().toLowerCase().contains(lowerCaseFilter)) {
+                return true; // Filter matches user name.
+            }
+            return user.getFullName().toLowerCase().contains(lowerCaseFilter); // Filter matches full name.
+        }));
+
+        SortedList<UserModel> sortedData = new SortedList<>(filteredData);
+
+        sortedData.comparatorProperty().bind(userTbl.comparatorProperty());
+
+        userTbl.setItems(sortedData);
         return userTbl;
     }
 }
