@@ -50,12 +50,14 @@ public class UserView {
         grid.add(usernameLbl, 0, 1);
 
         TextField usernameTxt = new TextField();
+        usernameTxt.setText("cuongpq");
         grid.add(usernameTxt, 1, 1);
 
         Label passwordLbl = new Label("Password:");
         grid.add(passwordLbl, 0, 2);
 
         PasswordField passwordTxt = new PasswordField();
+        passwordTxt.setText("1234");
         grid.add(passwordTxt, 1, 2);
 
         VBox vBox = new VBox(grid);

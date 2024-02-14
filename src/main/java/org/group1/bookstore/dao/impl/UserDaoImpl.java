@@ -2,6 +2,7 @@ package org.group1.bookstore.dao.impl;
 
 import org.group1.bookstore.constant.CommonConstant;
 import org.group1.bookstore.dao.UserDao;
+import org.group1.bookstore.dto.enumtype.Status;
 import org.group1.bookstore.mapper.UserMapper;
 import org.group1.bookstore.model.UserModel;
 
@@ -11,7 +12,7 @@ public class UserDaoImpl extends GenericDaoImpl<UserModel> implements UserDao {
 
     @Override
     public UserModel findById(Integer id) {
-        String sql = "SELECT * FROM user u WHERE u.id = ? AND u.status = " + CommonConstant.ACTIVE;
+        String sql = "SELECT * FROM user u WHERE u.id = ? AND u.status = " + Status.ACTIVE.getValue();
         List<UserModel> users = query(sql, new UserMapper(), id);
         return users.isEmpty() ? null : users.get(0);
     }
@@ -21,5 +22,11 @@ public class UserDaoImpl extends GenericDaoImpl<UserModel> implements UserDao {
         String sql = "SELECT * FROM user u WHERE u.username = ? AND u.password = ?";
         List<UserModel> users = query(sql, new UserMapper(),username,password);
         return users.isEmpty() ? null : users.get(0);
+    }
+
+    @Override
+    public List<UserModel> findAll() {
+        String sql = "SELECT * FROM user u";
+        return query(sql, new UserMapper());
     }
 }

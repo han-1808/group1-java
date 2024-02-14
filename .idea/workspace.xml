@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b9c49fe-d72a-4852-87a9-87bb634efcae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dto/enumtype/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dto/enumtype/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/GenericDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/GenericDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/constant/CommonConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/constant/CommonConstant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/GenericDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/GenericDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/UserDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/utils/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/utils/CommonUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/AdminView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/UserView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,11 +26,15 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17.0.6/javafx-controls-17.0.6-sources.jar!/javafx/scene/control/TableView.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -55,7 +61,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.BookStoreApplication.executor": "Debug",
+    "Application.BookStoreApplication.executor": "Run",
     "Application.HelloApplication.executor": "Run",
     "Maven.book-store [clean,install].executor": "Run",
     "Maven.book-store [clean:clean].executor": "Run",
@@ -64,7 +70,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "yen/admin-view-users",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Downloads/HK2 2023-2024/CSC13102_Java/group1-java/src/main/java/org/group1/bookstore/entity",
@@ -88,6 +94,16 @@
       <recent name="E:\Downloads\HK2 2023-2024\CSC13102_Java\group1-java\src\main\resources" />
       <recent name="E:\Downloads\HK2 2023-2024\CSC13102_Java\group1-java\src\main\resources\css" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.group1.bookstore.dto.enumtype" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="Application" />
+      </set>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="BookStoreApplication" type="Application" factoryName="Application" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">
@@ -129,7 +145,7 @@
       <updated>1707743291525</updated>
       <workItem from="1707743292531" duration="15309000" />
       <workItem from="1707798715719" duration="13783000" />
-      <workItem from="1707813083824" duration="10615000" />
+      <workItem from="1707813083824" duration="21068000" />
     </task>
     <servers />
   </component>
@@ -146,5 +162,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.group1.bookstore.dto.UserDto" memberName="fullName" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
