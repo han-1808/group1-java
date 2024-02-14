@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b9c49fe-d72a-4852-87a9-87bb634efcae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dto/enumtype/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dto/enumtype/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/constant/CommonConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/constant/CommonConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/dao/impl/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/utils/CommonUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/utils/CommonUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/AdminView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/UserView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +62,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "yen/admin-view-users",
+    "git-widget-placeholder": "yen/search-sort-users",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "E:/Downloads/HK2 2023-2024/CSC13102_Java/group1-java/src/main/java/org/group1/bookstore/entity",
@@ -164,6 +156,15 @@
     </option>
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/AdminView.java</url>
+          <line>114</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.group1.bookstore.dto.UserDto" memberName="fullName" />
