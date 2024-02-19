@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2b9c49fe-d72a-4852-87a9-87bb634efcae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/AdminView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/AdminView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/EmployeeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/EmployeeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/UserView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/UserView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +40,7 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -62,10 +63,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "yen/search-sort-users",
+    "git-widget-placeholder": "emp-search-sort-book",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Downloads/HK2 2023-2024/CSC13102_Java/group1-java/src/main/java/org/group1/bookstore/entity",
+    "last_opened_file_path": "E:/Works/SQL/Query/TM TM/2024 02/1.New MTD New - NEW v2 202304.sql",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -88,6 +89,10 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.group1.bookstore.dto.enumtype" />
+      <recent name="org.group1.bookstore.mapper" />
+      <recent name="org.group1.bookstore.dao.impl" />
+      <recent name="org.group1.bookstore.dao" />
+      <recent name="org.group1.bookstore.model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -138,6 +143,8 @@
       <workItem from="1707743292531" duration="15309000" />
       <workItem from="1707798715719" duration="13783000" />
       <workItem from="1707813083824" duration="21068000" />
+      <workItem from="1708326080780" duration="2341000" />
+      <workItem from="1708359886638" duration="5878000" />
     </task>
     <servers />
   </component>
@@ -156,15 +163,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/group1/bookstore/view/AdminView.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.group1.bookstore.dto.UserDto" memberName="fullName" />

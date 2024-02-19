@@ -50,7 +50,8 @@ public class UserView {
         grid.add(usernameLbl, 0, 1);
 
         TextField usernameTxt = new TextField();
-        usernameTxt.setText("cuongpq");
+//        usernameTxt.setText("cuongpq");
+        usernameTxt.setText("yenpn");
         grid.add(usernameTxt, 1, 1);
 
         Label passwordLbl = new Label("Password:");
