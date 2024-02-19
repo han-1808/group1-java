@@ -41,15 +41,10 @@ public class AdminView {
         TabPane tabPane = new TabPane();
         tabPane.getTabs().add(getTabViewAccount());
 
-        //TODO: Task 29:  View list of book authors. Search or sort on the list
-        /*Tab tabViewBook = new Tab("View Book", new Label("View a list of books"));
-        tabViewBook.setClosable(false);
-        tabPane.getTabs().add(tabViewBook);*/
-
         grid.add(tabPane, 0, 1);
 
         Button button = new Button();
-        button.setText("Back");
+        button.setText("Logout");
         button.setOnAction(event -> {
             stage.setScene(new Scene(new UserController(stage).getView(), 300, 275));
             stage.show();
