@@ -57,3 +57,36 @@
   -fx-background-color: linear-gradient(rgb(242, 86, 86), red);
   -fx-border-color: white;
 }
+.label {
+  -fx-background-color: white;
+  -fx-font-family: 'Ariel', sans-serif;
+  -fx-font-weight: bold;
+  -fx-font-size: 32;
+  -fx-text-fill: linear-gradient(#7997d6, #5b73b4);
+}
+.label-search {
+  -fx-background-color: transparent;
+  -fx-font-family: 'Ariel', sans-serif;
+  -fx-font-weight: bold;
+  -fx-font-size: 14;
+  -fx-text-fill: linear-gradient(#7997d6, #5b73b4);
+}
+.btn {
+  -fx-background-color: linear-gradient(#f8f8ff, #dcdcdc);
+  -fx-text-fill: linear-gradient(#7997d6, #5b73b4);
+  -fx-border-width: 0 0 0 0;
+  -fx-border-radius: 0;
+  -fx-button-width: 100;
+}
+.btn-menu {
+  -fx-text-fill: linear-gradient(#7997d6, #5b73b4);
+  -fx-background-color: transparent;
+  -fx-font-size: 20;
+}
+.btn:hover {
+  -fx-background-color: linear-gradient(#7997d6, #5b73b4);
+  -fx-text-fill: white;
+  -fx-border-width: 0 0 0 0;
+  -fx-border-radius: 0;
+  -fx-background-radius: 0;
+}
