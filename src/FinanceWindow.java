@@ -344,5 +344,31 @@ public class FinanceWindow {
         centerVBoxMember.setSpacing(10);
 
     }
+    private static void refreshEmployee(){
+        searchBox.clear();
+        searchOption.setValue("All");
+        dateBox=getTime();
+        centerTop.getChildren().clear();
+        centerTop.getChildren().addAll(search, searchOption, dateBox);
+         try  {
+              table.getItems().clear();
+              table.getItems().addAll(conn.getEmployeeFinanceHistory(searchBox.getText(), searchOption.getValue(),
+                ((ComboBox) dateBox.getChildren().get(2)).getValue()+"-"+
+                        ((ComboBox) dateBox.getChildren().get(1)).getValue()+"-"+
+                        ((ComboBox) dateBox.getChildren().get(0)).getValue(),
+                ((ComboBox) dateBox.getChildren().get(6)).getValue()+"-"+
+                        ((ComboBox) dateBox.getChildren().get(5)).getValue()+"-"+
+                        ((ComboBox) dateBox.getChildren().get(4)).getValue()));
 
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+         rowSum.setText("[Row Selected: "+table.getItems().size()+"]");
+         int sum=0;
+         for(int c=0; c<table.getItems().size();c++){
+             sum+=table.getItems().get(c).getAmount();
+         }
+         total.setText(""+sum);
+         total.setAlignment(Pos.CENTER_RIGHT);
+    }
 }
