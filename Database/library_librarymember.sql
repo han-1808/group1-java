@@ -40,7 +40,10 @@ CREATE TABLE `librarymember` (
 
 LOCK TABLES `librarymember` WRITE;
 /*!40000 ALTER TABLE `librarymember` DISABLE KEYS */;
-INSERT INTO `librarymember` VALUES (1,'Ashiq','Rahman','ashiqrahman.1829@gmail.com','123456','1737940044'),(9,'Samiha','Tasnim','samtam@gmail.com','samtam','1234'),(10,'Jack','Frost','j@f.com','jf','123');
+INSERT INTO `librarymember`
+VALUES (1,'test','pham','1','1','1234')
+     ,(9,'ph','e','s','d','1234')
+     ,(10,'d','g','f','d','1234');
 /*!40000 ALTER TABLE `librarymember` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

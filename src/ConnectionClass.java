@@ -22,7 +22,7 @@ public class ConnectionClass {
     private HashMap<Integer, String> employees;
     private String url="jdbc:mysql://localhost:3306/library";
     private String username= "root";
-    private String password= "123456";
+    private String password= "1234";
 
     private ConnectionClass() {
 
