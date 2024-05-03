@@ -22,3 +22,38 @@
   -fx-button-border: 0px;
   -fx-cursor: hand;
 }
+.regButton:hover {
+  -fx-background-color: orange;
+  -fx-border-color: orange;
+  -fx-text-fill: white;
+  -fx-button-border: 15;
+  -fx-background-radius: 12;
+  -fx-border-radius: 12;
+  -fx-button-border: 0px;
+  -fx-cursor: hand;
+}
+
+.buttonForget {
+  -fx-font-size: 14;
+  -fx-border-width: 0 0 0 0;
+  -fx-color: linear-gradient(#7997d6, #5b73b4);
+  -fx-background-color: white;
+}
+.buttonForget:hover {
+  -fx-font-width: bold;
+  -fx-text-fill: linear-gradient(#7997d6, #5b73b4);
+  -fx-background-color: white;
+}
+.buttonClose {
+  -fx-font-size: 12;
+  -fx-border-radius: 0;
+  -fx-background-radius: 0;
+  -fx-color: linear-gradient(#7997d6, #5b73b4);
+  -fx-background-color: white;
+}
+.buttonClose:hover {
+  -fx-border-radius: 0;
+  -fx-background-radius: 0;
+  -fx-background-color: linear-gradient(rgb(242, 86, 86), red);
+  -fx-border-color: white;
+}
