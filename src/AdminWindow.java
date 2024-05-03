@@ -16,5 +16,18 @@ import java.util.Random;
 
 import java.util.concurrent.TimeUnit;
 public class AdminWindow {
-    
+    private int ID;
+    private String firstName;
+    private String lastName;
+    private int phoneNumber;
+    private String email;
+    private String password;
+    private boolean stretched;
+    private boolean stretchedAction;
+    private String abilityLevel;
+    private int posX;
+    private int posY;
+    private int clickedX;
+    private int clickedY;
+
 }
