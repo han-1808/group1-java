@@ -1,5 +1,3 @@
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -9,18 +7,17 @@ import javafx.scene.layout.VBox;
 
 import java.sql.*;
 
-public class EmployeeWindow {
+public class MemberWindow {
 
     static private VBox centerVBox;
-    static private Connection myCon;
-    static private TableView<EmployeeTable> table;
-    static private  ConnectionClass conn;
-    static private TableColumn<EmployeeTable, Integer> id;
-    static private TableColumn<EmployeeTable, String> firstName;
-    static private TableColumn<EmployeeTable, String> lastName;
-    static private TableColumn<EmployeeTable, String> email;
-    static private TableColumn<EmployeeTable, String> phoneNumber;
-    static private TableColumn<EmployeeTable, String> salary;
+    static Connection myCon;
+    static TableView<EmployeeTable> table;
+    static ConnectionClass conn;
+    static TableColumn<EmployeeTable, Integer> id;
+    static TableColumn<EmployeeTable, String> firstName;
+    static TableColumn<EmployeeTable, String> lastName;
+    static TableColumn<EmployeeTable, String> email;
+    static TableColumn<EmployeeTable, String> phoneNumber;
     static private TextField searchBox;
     static private Button searchBtn;
     static private Button refreshBtn;
@@ -48,12 +45,9 @@ public class EmployeeWindow {
         phoneNumber = new TableColumn<>("Phone Number");
         phoneNumber.setPrefWidth(230);
         phoneNumber.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
-        salary = new TableColumn<>("Salary");
-        salary.setPrefWidth(230);
-        salary.setCellValueFactory(new PropertyValueFactory<>("salary"));
 
         searchBox = new TextField();
-        searchBox.setPromptText("search Employee");
+        searchBox.setPromptText("Search Books");
         searchBox.setPrefSize(400, 40);
         searchBox.setMinSize(400, 40);
         searchBox.setMaxSize(400, 40);
@@ -78,7 +72,7 @@ public class EmployeeWindow {
 
 
         search = new HBox();
-        search.getChildren().addAll(searchBox, searchBtn,refreshBtn);
+        search.getChildren().addAll(searchBox, searchBtn, refreshBtn);
         search.setAlignment(Pos.CENTER);
 
         label = new Label("Search By:");
@@ -108,25 +102,27 @@ public class EmployeeWindow {
         table=null;
         conn=ConnectionClass.getInstance();
         try {
-            table = new TableView<EmployeeTable>(conn.getEmployees(searchBox.getText(), cat.getValue()));
+            table = new TableView<EmployeeTable>(conn.getMembers(searchBox.getText(), cat.getValue()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        rowSum.setText("[Row Selected: "+table.getItems().size()+"]");
-
-        table.getColumns().addAll(id, firstName, lastName, email, phoneNumber, salary);
+        table.getColumns().addAll(id, firstName, lastName, email, phoneNumber);
         table.setPrefSize(1150, 510);
         table.setMaxSize(1150, 510);
 
         searchBtn.setOnAction(event -> {
             table.getItems().clear();
             try {
-                table.getItems().addAll(conn.getEmployees(searchBox.getText(), cat.getValue()));
+                table.getItems().addAll(conn.getMembers(searchBox.getText(), cat.getValue()));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
             rowSum.setText("[Row Selected: "+table.getItems().size()+"]");
+        });
+
+        refreshBtn.setOnAction(event -> {
+            refresh();
         });
 
         centerTop = new HBox();
@@ -137,10 +133,6 @@ public class EmployeeWindow {
         centerTop.setSpacing(30);
         centerTop.setAlignment(Pos.CENTER);
 
-        refreshBtn.setOnAction(event -> {
-            refresh();
-        });
-
         centerVBox=new VBox();
         centerVBox.setPadding(new Insets(20, 20, 20, 20));
         centerVBox.maxHeight(100);
@@ -148,31 +140,21 @@ public class EmployeeWindow {
         centerVBox.setSpacing(10);
 
     }
-    private static void setColumns(String s){
-        table.getColumns().clear();
-        if (s.equals("Admin")){
-            table.getColumns().addAll(id, firstName, lastName, email, phoneNumber, salary);
-        }else{
-            table.getColumns().addAll(id, firstName, lastName, email, phoneNumber);
-        }
-    }
 
     private static void refresh(){
         cat.setValue("ID");
         searchBox.clear();
         table.getItems().clear();
         try {
-            table.getItems().addAll(conn.getEmployees(searchBox.getText(), cat.getValue()));
+            table.getItems().addAll(conn.getMembers(searchBox.getText(), cat.getValue()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
         rowSum.setText("[Row Selected: "+table.getItems().size()+"]");
     }
 
-    public static  VBox getBookWindow(String s) {
-        setColumns(s);
+    public static  VBox getBookWindow() {
         refresh();
         return centerVBox;
     }
-
 }

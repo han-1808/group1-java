@@ -550,7 +550,123 @@ public class ConnectionClass {
         stat.close();
     }
 
+    public void receiveBook(int id, String issueID, String shelfID) throws SQLException {
+        Statement stat = myCon.createStatement();
 
+        ResultSet rs = stat.executeQuery("Select Title, Author from issuedbooks where ID= " + issueID + ";");
+        String title = "";
+        String author = "";
+        while (rs.next()) {
+            title = rs.getString("Title");
+            author = rs.getString("Author");
+        }
+        rs.close();
+        String search = "SELECT Available FROM books WHERE Title=\"" + title + "\" AND Author=\"" + author + "\" AND `Shelf-ID`=\"" + shelfID + "\";";
+        rs = stat.executeQuery(search);
+        int available = 0;
+        while (rs.next()) {
+            available = rs.getInt("Available");
+        }
+        stat.executeUpdate("update books " +
+                " set `Available`=" + (available + 1) +
+                " where Title=\"" + title + "\" AND author=\"" + author + "\" AND `Shelf-ID`=\"" + shelfID + "\"");
+        stat.executeUpdate("update issuedbooks " +
+                " set `Returned Date`= current_date(), `Returned Time`= current_time()" +
+                " where ID= " + issueID + ";");
+
+        stat.close();
+    }
+
+    public String[] getMisc(String field) throws SQLException {
+        String[] ret = new String[4];
+        Statement stat = myCon.createStatement();
+        ResultSet resultSet = stat.executeQuery("SELECT * FROM Misc WHERE Field=\"" + field + "\";");
+        while (resultSet.next()) {
+            ret[0] = "" + resultSet.getInt("Amount");
+            ret[1] = "" + resultSet.getInt("Type");
+            ret[2] = "" + resultSet.getInt("Updated By(ID)");
+            ret[3] = "" + resultSet.getDate("Update Date");
+        }
+        resultSet.close();
+        stat.close();
+
+        return ret;
+    }
+
+    public void setMisc(String field, String amount, String type, int id) throws SQLException {
+        Statement stat = myCon.createStatement();
+        stat.executeUpdate("Update Misc SET `Amount`=" + amount + ", `Type`=" + type + ", `Update Date`=current_date(), `Updated By(ID)`=" + id + " WHERE Field=\"" + field + "\";");
+        stat.close();
+    }
+
+    public void setSalary(String id, String salary) throws SQLException {
+        Statement stat = myCon.createStatement();
+        stat.executeUpdate("Update librarystuff SET `salary`=\"" + salary + "\" WHERE `ID`=" + id + ";");
+        stat.close();
+    }
+
+    public void employeePayment(String employeeID, String type, String occasion, int enteredBy, String amount) throws SQLException {
+        Statement stat = myCon.createStatement();
+        int salary = 0;
+        if (!type.equals("Medical Fee")) {
+            ResultSet resultSet = stat.executeQuery("SELECT salary FROM librarystuff");
+            while (resultSet.next()) {
+                salary = resultSet.getInt("salary");
+            }
+            resultSet.close();
+        } else {
+            salary = Integer.parseInt(amount);
+        }
+        stat.executeUpdate("INSERT INTO employeepaymenthistory(ID, Date, Time, `Transaction Type`, `Occasion`, Amount, `Entered By`) " +
+                " values(" + employeeID + ", current_date(), current_time(), \"" + type + "\", \"" + occasion + "\" , " + salary + ", " + enteredBy + ")");
+        stat.close();
+    }
+
+    public int[] getamounts() throws SQLException {
+        Statement stat = myCon.createStatement();
+        int[] ret = new int[3];
+        ResultSet rs = stat.executeQuery("SELECT * FROM misc WHERE `Field`=\"Membership Fee\" ");
+        while (rs.next()) {
+            ret[0] = rs.getInt("Amount");
+        }
+        rs.close();
+        rs = stat.executeQuery("SELECT * FROM misc WHERE `Field`=\"Delay Fee\" ");
+        while (rs.next()) {
+            ret[1] = rs.getInt("Amount");
+            ret[2] = rs.getInt("Type");
+        }
+        rs.close();
+        stat.close();
+        return ret;
+    }
+
+    public void memberPayment(String memberID, String type, String occasion, int enteredBy, String amount) throws SQLException {
+        Statement stat = myCon.createStatement();
+        int salary = 0;
+        if (!type.equals("Medical Fee")) {
+            ResultSet resultSet = stat.executeQuery("SELECT salary FROM librarystuff");
+            while (resultSet.next()) {
+                salary = resultSet.getInt("salary");
+            }
+            resultSet.close();
+        }
+        stat.executeUpdate("INSERT INTO memberfeehistory(ID, Date, Time, `Transaction Type`, `Occasion`, Amount, `Entered By`) " +
+                " values(" + memberID + ", current_date(), current_time(), \"" + type + "\", \"" + occasion + "\" , " + amount + ", " + enteredBy + ")");
+        stat.close();
+    }
+
+    public int getDelayedAmount(String id) throws SQLException {
+        Statement stat = myCon.createStatement();
+        ResultSet rs = stat.executeQuery("SELECT `Issued Date` FROM issuedbooks WHERE ID = " + id);
+        Date hist = new Date(System.currentTimeMillis());
+        java.util.Date date = new java.util.Date();
+        while (rs.next()) {
+            date = rs.getDate("Issued Date");
+        }
+        java.util.Date now = new java.util.Date(System.currentTimeMillis());
+
+        return (int) (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24);
+    }
 
     public ObservableList getIssuedHistory(String searchBox, String startDate, String endDate, String cat, String ability, int id) throws SQLException {
         ObservableList list = FXCollections.observableArrayList();
