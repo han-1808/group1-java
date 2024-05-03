@@ -8,5 +8,11 @@ import javafx.scene.layout.VBox;
 
 import java.sql.SQLException;
 public class Finance {
-    
+    private static Finance obj=null;
+    private static HBox fullBox=new HBox();
+    private static VBox rightBox= new VBox();
+    private static VBox leftBox= new VBox();
+    private static int id, lateFee, lateDays, membershipFee, val;
+    private static String emp;
+
 }
