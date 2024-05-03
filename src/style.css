@@ -13,3 +13,12 @@
   // -fx-button-webkit-transition-duration: 0.7s; /* Safari */
   -fx-button-transition-duration: 0.7s;
 }
+.button:hover {
+  -fx-background-color: linear-gradient(#7997d6, #5b73b4);
+  -fx-text-fill: white;
+  -fx-button-border: 15;
+  -fx-background-radius: 12;
+  -fx-border-radius: 12;
+  -fx-button-border: 0px;
+  -fx-cursor: hand;
+}
