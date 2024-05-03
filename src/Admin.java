@@ -14,7 +14,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.sql.SQLException;
+
 public class Admin {
+
     public void start(Stage arg0,Scene prevSc, String s) {
 
         GridPane grid = new GridPane();
@@ -108,7 +110,6 @@ public class Admin {
         grid.autosize();
 
         Scene sc = new Scene(grid, 500, 600);
-
 
         sc.getStylesheets().add("style.css");
         logIn.setOnAction(event -> {
@@ -207,4 +208,29 @@ public class Admin {
 
             }
         });
+        user.setOnMouseClicked(event -> wrong.setStyle(" -fx-text-fill: white;"));
+        password.setOnMouseClicked(event -> wrong.setStyle(" -fx-text-fill: white;"));
+        close.setOnAction(event -> arg0.close());
+        minimize.setOnAction(event -> arg0.setIconified(true));
+        password.setOnAction(event -> {
+            Stage alarm=new Stage();
+            Label doom= new Label();
+            char[] ch= Character.toChars(128541);
+            doom.setText("Bookstore X! "+String.valueOf(ch));
+            Button okey=new Button("Continue");
+            VBox vBox=new VBox();
+            vBox.setAlignment(Pos.CENTER);
+            vBox.getChildren().addAll(doom,okey);
+            Scene dooming=new Scene(vBox,430,200);
+            dooming.getStylesheets().add("style.css");
+            alarm.setScene(dooming);
+            alarm.initStyle(StageStyle.UNDECORATED);
+            alarm.initModality(Modality.APPLICATION_MODAL);
+            okey.setOnAction(event1 -> alarm.close());
+            alarm.show();
+        });
+
+        arg0.setScene(sc);
+        arg0.show();
+    }
 }
