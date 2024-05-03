@@ -92,5 +92,94 @@ public class AdminWindow {
 
 //        Line color
         top2.setStyle("-fx-background-color: linear-gradient(#d5d8f0, #d5d8f0)");
+        // Đặt nền trong suốt cho helloLbl và welcomeLabel
+        helloLbl.setStyle("-fx-background-color: transparent;");
+        welcomeLabel.setStyle("-fx-background-color: transparent;");
+//        top2.getChildren().add(labelsHBox);
+        top2.getChildren().addAll(cBox);
+        top2.setAlignment(Pos.BOTTOM_RIGHT);
+        HBox bottomLeftBox = new HBox();
+        bottomLeftBox.setAlignment(Pos.CENTER_LEFT); // Align content to the left
+        bottomLeftBox.getChildren().add(cBox); // Add the ComboBox to this HBox
+        bottomLeftBox.setPadding(new Insets(10, 10, 10, 10));
+        String name = firstName+" "+lastName;
+
+        Button dashboard = new Button("\uD83D\uDCC5 Dashboard");
+        dashboard.getStyleClass().add("btn");
+        dashboard.setMaxSize(300, 60);
+        dashboard.setPrefSize(300, 60);
+        dashboard.setMinSize(300, 60);
+        String as="2BC8";
+        int a= Integer.parseInt(as,16);
+        char ss=(char)a;
+
+        Button history = new Button("\uD83D\uDCDA History");
+        history.getStyleClass().add("btn");
+        history.setMaxSize(300, 60);
+        history.setPrefSize(300, 60);
+        history.setMinSize(300, 60);
+
+
+        Button issuedBooks = new Button(" Issued Books");
+        issuedBooks.getStyleClass().add("btn");
+        issuedBooks.setStyle("-fx-font-size:16");
+        issuedBooks.setMaxSize(300, 60);
+        issuedBooks.setPrefSize(300, 0);
+        issuedBooks.setMinSize(300, 0);
+
+        Button addRemBooks = new Button("Add/Remove Books");
+        addRemBooks.getStyleClass().add("btn");
+        addRemBooks.setStyle("-fx-font-size:16");
+        addRemBooks.setMaxSize(300, 60);
+        addRemBooks.setPrefSize(300, 0);
+        addRemBooks.setMinSize(300, 0);
+
+        Button finance = new Button("Finance");
+        finance.getStyleClass().add("btn");
+        finance.setStyle("-fx-font-size:16");
+        finance.setMaxSize(300, 60);
+        finance.setPrefSize(300, 0);
+        finance.setMinSize(300, 0);
+
+        Button action = new Button("\u2699 Actions");
+        action.getStyleClass().add("btn");
+        action.setMaxSize(300, 60);
+        action.setPrefSize(300, 60);
+        action.setMinSize(300, 60);
+
+        Button issueBook = new Button(" Issue Book");
+        issueBook.getStyleClass().add("btn");
+        issueBook.setStyle("-fx-font-size:16");
+        issueBook.setMaxSize(300, 60);
+        issueBook.setPrefSize(300, 0);
+        issueBook.setMinSize(300, 0);
+
+        Button receiveBooks = new Button("Receive Book");
+        receiveBooks.getStyleClass().add("btn");
+        receiveBooks.setStyle("-fx-font-size:16");
+        receiveBooks.setMaxSize(300, 60);
+        receiveBooks.setPrefSize(300, 0);
+        receiveBooks.setMinSize(300, 0);
+
+        Button add = new Button("Add");
+        add.getStyleClass().add("btn");
+        add.setStyle("-fx-font-size:16");
+        add.setMaxSize(300, 60);
+        add.setPrefSize(300, 0);
+        add.setMinSize(300, 0);
+
+        Button remove = new Button("Remove");
+        remove.getStyleClass().add("btn");
+        remove.setStyle("-fx-font-size:16");
+        remove.setMaxSize(300, 60);
+        remove.setPrefSize(300, 0);
+        remove.setMinSize(300, 0);
+
+        Button financeActivity = new Button("Finance");
+        financeActivity.getStyleClass().add("btn");
+        financeActivity.setStyle("-fx-font-size:16");
+        financeActivity.setMaxSize(300, 60);
+        financeActivity.setPrefSize(300, 0);
+        financeActivity.setMinSize(300, 0);
 
 }
