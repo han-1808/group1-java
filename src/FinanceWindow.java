@@ -186,4 +186,163 @@ public class FinanceWindow {
             total.setText(""+sum);
             total.setAlignment(Pos.CENTER_RIGHT);
         });
+        table.getColumns().addAll(id, name, date, time, transactionType, occasion, amount, enteredBy);
+        table.setPrefSize(1150, 510);
+        table.setMaxSize(1150, 510);
+
+        centerVBox=new VBox();
+        centerVBox.setPadding(new Insets(20, 20, 10, 20));
+        centerVBox.maxHeight(100);
+        centerVBox.getChildren().addAll(centerTop, table, lowestCenter);
+        centerVBox.setSpacing(10);
+
+        occasionMember = new TableColumn<>("Occasion");
+        occasionMember.setPrefWidth(230);
+        occasionMember.setCellValueFactory(new PropertyValueFactory<>("occasion"));
+
+        idMember = new TableColumn<>(" ID");
+        idMember.setPrefWidth(115);
+        idMember.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        nameMember = new TableColumn<>("Name");
+        nameMember.setPrefWidth(230);
+        nameMember.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        timeMember = new TableColumn<>("Time");
+        timeMember.setPrefWidth(115);
+        timeMember.setCellValueFactory(new PropertyValueFactory<>("time"));
+
+        dateMember = new TableColumn<>("Date");
+        dateMember.setPrefWidth(115);
+        dateMember.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        amountMember = new TableColumn<>("Amount");
+        amountMember.setPrefWidth(115);
+        amountMember.setCellValueFactory(new PropertyValueFactory<>("amount"));
+
+        enteredByMember = new TableColumn<>("Entered By");
+        enteredByMember.setPrefWidth(115);
+        enteredByMember.setCellValueFactory(new PropertyValueFactory<>("enteredBy"));
+
+        transactionTypeMember = new TableColumn<>("Transaction Type");
+        transactionTypeMember.setPrefWidth(230);
+        transactionTypeMember.setCellValueFactory(new PropertyValueFactory<>("transactionType"));
+
+
+        searchBoxMember = new TextField();
+        searchBoxMember.setPromptText("Search by ID");
+        searchBoxMember.setPrefSize(400, 40);
+        searchBoxMember.setMinSize(400, 40);
+        searchBoxMember.setMaxSize(400, 40);
+
+        searchBtnMember = new Button();
+        searchBtnMember.setMinSize(40, 40);
+        searchBtnMember.setPrefSize(40, 40);
+        searchBtnMember.setMaxSize(40, 40);
+        searchBtnMember.setText(String.valueOf(searchSign));
+        searchBtnMember.getStyleClass().add("btn-menu");
+        searchBtnMember.setStyle(" -fx-font-size:16;");
+
+        refreshBtnMember = new Button();
+        refreshBtnMember.setMinSize(40, 40);
+        refreshBtnMember.setPrefSize(40, 40);
+        refreshBtnMember.setMaxSize(40, 40);
+        refreshBtnMember.setText(String.valueOf(refreshSign));
+        refreshBtnMember.getStyleClass().add("btn-menu");
+        refreshBtnMember.setStyle(" -fx-font-size:16;");
+
+        searchMember = new HBox();
+        searchMember.getChildren().addAll(searchBoxMember, searchBtnMember, refreshBtnMember);
+        searchMember.setAlignment(Pos.CENTER);
+
+        searchOptionMember = new ComboBox<String>();
+        searchOptionMember.getItems().addAll("Membership fee", "Delay fee", "Misc fee", "All");
+        searchOptionMember.setValue("All");
+        searchOptionMember.setMinSize(150, 40);
+        searchOptionMember.setPrefSize(150, 40);
+        searchOptionMember.setMaxSize(150, 40);
+
+
+        centerTopMember = new HBox();
+
+        dateBoxMember= getTime();
+
+        centerTopMember.getChildren().addAll(searchMember, searchOptionMember, dateBoxMember);
+        centerTopMember.setPrefSize(1150, 90);
+        centerTopMember.setMaxSize(1150, 90);
+        centerTopMember.setSpacing(10);
+        centerTopMember.setAlignment(Pos.CENTER_RIGHT);
+
+        lowestCenterMember=new HBox();
+
+        totalMember=new TextField();
+        totalMember.setStyle("-fx-background-color: #D3D3D3;" +
+                " -fx-font-weight:bold;");
+        totalMember.setAlignment(Pos.CENTER_RIGHT);
+        totalMember.setMinSize(230,25);
+        totalMember.setPrefSize(230,25);
+        totalMember.setMaxSize(230,25);
+
+        totalLabelMember =new Label("Total");
+        totalLabelMember.setStyle("-fx-font-style:italic;" +
+                " -fx-text-fill: #D3D3D3;" +
+                " -fx-font-size: 16;");
+
+        rowSumMember =new Label("[Row Selected: "+"]");
+        rowSumMember.setStyle("-fx-font-style:italic;" +
+                " -fx-text-fill: #D3D3D3;" +
+                " -fx-font-size: 16;");
+        lowestCenterMember.getChildren().addAll(rowSumMember,totalLabelMember, totalMember);
+        lowestCenterMember.setAlignment(Pos.CENTER_RIGHT);
+        lowestCenterMember.setSpacing(10);
+
+        tableMember=null;
+        try {
+            tableMember = new TableView<MemberFinanceTable>(conn.getMemberFeeHistory(searchBoxMember.getText(),searchOptionMember.getValue(),
+                    ((ComboBox) dateBoxMember.getChildren().get(2)).getValue()+"-"+
+                            ((ComboBox) dateBoxMember.getChildren().get(1)).getValue()+"-"+
+                            ((ComboBox) dateBoxMember.getChildren().get(0)).getValue(),
+                    ((ComboBox) dateBoxMember.getChildren().get(6)).getValue()+"-"+
+                            ((ComboBox) dateBoxMember.getChildren().get(5)).getValue()+"-"+
+                            ((ComboBox) dateBoxMember.getChildren().get(4)).getValue()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        tableMember.getColumns().addAll(idMember, nameMember, dateMember, timeMember, transactionTypeMember, occasionMember, amountMember, enteredByMember);
+        tableMember.setPrefSize(1150, 510);
+        tableMember.setMaxSize(1150, 510);
+
+        searchBtnMember.setOnAction(event -> {
+            try {
+                tableMember.getItems().clear();
+                tableMember.getItems().addAll(conn.getMemberFeeHistory(searchBoxMember.getText(),searchOptionMember.getValue(),
+                        ((ComboBox) dateBoxMember.getChildren().get(2)).getValue()+"-"+
+                                ((ComboBox) dateBoxMember.getChildren().get(1)).getValue()+"-"+
+                                ((ComboBox) dateBoxMember.getChildren().get(0)).getValue(),
+                        ((ComboBox) dateBoxMember.getChildren().get(6)).getValue()+"-"+
+                                ((ComboBox) dateBoxMember.getChildren().get(5)).getValue()+"-"+
+                                ((ComboBox) dateBoxMember.getChildren().get(4)).getValue()));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            rowSumMember.setText("[Row Selected: "+tableMember.getItems().size()+"]");
+            int sum=0;
+            for(int c=0; c<tableMember.getItems().size();c++){
+                sum+=tableMember.getItems().get(c).getAmount();
+            }
+            totalMember.setText(""+sum);
+            totalMember.setAlignment(Pos.CENTER_RIGHT);
+        });
+
+        refreshBtn.setOnAction(event -> refreshEmployee());
+        refreshBtnMember.setOnAction(event -> refreshMember());
+
+        centerVBoxMember=new VBox();
+        centerVBoxMember.setPadding(new Insets(20, 20, 10, 20));
+        centerVBoxMember.maxHeight(100);
+        centerVBoxMember.getChildren().addAll(centerTopMember, tableMember, lowestCenterMember);
+        centerVBoxMember.setSpacing(10);
+
+    }
+
 }
