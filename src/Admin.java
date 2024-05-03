@@ -108,4 +108,103 @@ public class Admin {
         grid.autosize();
 
         Scene sc = new Scene(grid, 500, 600);
+
+
+        sc.getStylesheets().add("style.css");
+        logIn.setOnAction(event -> {
+            ConnectionClass conn = ConnectionClass.getInstance();
+            try {
+                AdminWindow a;
+                switch (s) {
+                    case "Admin":
+                        if ((a = conn.adminCheck(user.getText(), password.getText())) != null) {
+                            arg0.close();
+                            a.start(arg0, sc);
+                            user.clear();
+                            password.clear();
+                        }else{
+                            wrong.setStyle(" -fx-text-fill: red;" +
+                                    "  -fx-font-size: 16;");
+                            password.clear();
+                        }
+                        break;
+                    case "Employee":
+                        if ((a = conn.employeeCheck(user.getText(), password.getText())) != null) {
+                            arg0.close();
+                            a.start(arg0, sc);
+                            user.clear();
+                            password.clear();
+                        }else{
+                            wrong.setStyle(" -fx-text-fill: red;" +
+                                    "  -fx-font-size: 16;");
+                            password.clear();
+                        }
+                        break;
+                    case "Member":
+                        if ((a = conn.memberCheck(user.getText(), password.getText())) != null) {
+                            arg0.close();
+                            a.start(arg0, sc);
+                            user.clear();
+                            password.clear();
+                        }else{
+                            wrong.setStyle(" -fx-text-fill: red;" +
+                                    "  -fx-font-size: 16;");
+                            password.clear();
+                        }
+                        break;
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+        password.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            switch (event.getCode()){
+                case ENTER:
+                    ConnectionClass conn = ConnectionClass.getInstance();
+                    try {
+                        AdminWindow a;
+                        switch (s) {
+                            case "Admin":
+                                if ((a = conn.adminCheck(user.getText(), password.getText())) != null) {
+                                    arg0.close();
+                                    a.start(arg0, sc);
+                                    user.clear();
+                                    password.clear();
+                                }else{
+                                    wrong.setStyle(" -fx-text-fill: red;" +
+                                            "  -fx-font-size: 16;");
+                                    password.clear();
+                                }
+                                break;
+                            case "Employee":
+                                if ((a = conn.employeeCheck(user.getText(), password.getText())) != null) {
+                                    arg0.close();
+                                    a.start(arg0, sc);
+                                    user.clear();
+                                    password.clear();
+                                }else{
+                                    wrong.setStyle(" -fx-text-fill: red;" +
+                                            "  -fx-font-size: 16;");
+                                    password.clear();
+                                }
+                                break;
+                            case "Member":
+                                if ((a = conn.memberCheck(user.getText(), password.getText())) != null) {
+                                    arg0.close();
+                                    a.start(arg0, sc);
+                                    user.clear();
+                                    password.clear();
+                                }else{
+                                    wrong.setStyle(" -fx-text-fill: red;" +
+                                            "  -fx-font-size: 16;");
+                                    password.clear();
+                                }
+                                break;
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+            }
+        });
 }
