@@ -564,3 +564,42 @@ public class Finance {
         });
 
     }
+    private Finance(){
+
+
+    }
+    public static Finance getInstance(){
+        if(obj==null){
+            obj=new Finance();
+        }
+        return obj;
+    }
+    private static void setVal(int value){
+        val=value;
+    }
+    public static void refresh() throws SQLException {
+        ConnectionClass con=ConnectionClass.getInstance();
+        int [] vals = con.getamounts();
+        membershipFee = vals[0];
+        lateFee = vals[1];
+        lateDays = vals[2];
+    }
+    public HBox getBox(String ability, int Employee){
+        this.id= Employee;
+        emp=ability;
+        if(ability.equals("Admin")){
+            fullBox.getChildren().clear();
+            fullBox.getChildren().addAll(leftBox, rightBox);
+            fullBox.setAlignment(Pos.CENTER);
+            fullBox.setSpacing(100);
+        }else{
+            fullBox.getChildren().clear();
+            fullBox.getChildren().addAll(rightBox);
+            fullBox.setAlignment(Pos.CENTER);
+            fullBox.setSpacing(100);
+        }
+        return fullBox;
+    }
+
+
+}
