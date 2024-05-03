@@ -1,0 +1,15 @@
+.button,
+.regButton {
+  -fx-background-color: linear-gradient(white, white); /* Green */
+  -fx-text-fill: #7997d6;
+  -fx-border-color: #7997d6;
+  -fx-text-alignment: center;
+  -fx-display: inline-block;
+  -fx-font-size: 22px;
+  -fx-border-radius: 12;
+  -fx-font-weight: bold;
+  -fx-font-family: 'Ariel', sans-serif;
+
+  // -fx-button-webkit-transition-duration: 0.7s; /* Safari */
+  -fx-button-transition-duration: 0.7s;
+}
