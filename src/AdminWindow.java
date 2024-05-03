@@ -29,5 +29,16 @@ public class AdminWindow {
     private int posY;
     private int clickedX;
     private int clickedY;
+    public AdminWindow(int id,String firstName,String lastName,String email, String password, int phoneNumber, String abilityLavel){
+        ID=id;
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.password=password;
+        this.phoneNumber=phoneNumber;
+        this.email=email;
+        stretched=false;
+        stretchedAction=false;
+        this.abilityLevel=abilityLavel;
+    }
 
 }
