@@ -12,7 +12,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import java.sql.SQLException;
 
 public class Admin {
@@ -33,8 +34,14 @@ public class Admin {
         HBox hb= new HBox();
         Label wrong=new Label();
         VBox wrongBox=new VBox();
+        Image image = new Image("loginBanner.png");
+        ImageView imageView = new ImageView(image);
+        imageView.setFitWidth(400);
+        imageView.setFitHeight(650);
+//        imageView.setPreserveRatio(true);
 
         grid.setPadding(new Insets(0, 0, 20, 20));
+
         grid.setVgap(20);
         grid.setHgap(30);
 
@@ -48,7 +55,7 @@ public class Admin {
 
 
         user.setPrefSize(500, 55);
-        user.setPromptText("Enter email address");
+        user.setPromptText("Username");
         user.setFocusTraversable(false);
 
         password.setPrefSize(500, 55);
@@ -72,19 +79,22 @@ public class Admin {
                 welcome.setText("Bookstore X - Member Portal");
                 break;
         }
-
+        grid.add(imageView, 5, 1, 1, 10);
         close.setText(""+sign);
 
         close.setMinSize(40,30);
         close.setPrefSize(40,30);
         close.setMaxSize(40,30);
-        close.setTranslateX(-1);
+
         minimize.setMinSize(40,30);
         minimize.setPrefSize(40,30);
         minimize.setMaxSize(40,30);
-        minimize.setTranslateX(-1);
-        minimize.getStyleClass().add("buttonClose");
 
+        minimize.setTranslateX(460);
+        close.setTranslateX(460);
+        minimize.getStyleClass().add("buttonClose");
+//        minimize.setStyle("-fx-background-color:transparent;");
+//        close.setStyle("-fx-background-color:transparent;");
         close.getStyleClass().add("buttonClose");
         minimize.getStyleClass().add("buttonMinimize");
 
@@ -107,9 +117,10 @@ public class Admin {
         GridPane.setConstraints(empty, 1, 8,1,1);
         GridPane.setConstraints(back, 0, 9,1,1);
         GridPane.setConstraints(wrongBox, 0, 10,4,1);
+
         grid.autosize();
 
-        Scene sc = new Scene(grid, 500, 600);
+        Scene sc = new Scene(grid, 900, 600);
 
         sc.getStylesheets().add("style.css");
         logIn.setOnAction(event -> {
