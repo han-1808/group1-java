@@ -58,6 +58,16 @@ public class AdminWindow {
         ImageView userIcon = new ImageView(new Image("file:icon-bookstore.png")); // Adjust the path to where your actual image is
         userIcon.setFitHeight(70);  // Set the size as needed
         userIcon.setFitWidth(70);
+        ImageView bannerApplication = new ImageView("bookApplication.png");
+        bannerApplication.setFitWidth(700);
+        bannerApplication.setFitHeight(100);
+
+        HBox bannerBox = new HBox();
+        bannerBox.setAlignment(Pos.CENTER);
+        bannerBox.getChildren().add(bannerApplication);
+
+
+
         // Welcome Back text
         Label welcomeLabel = new Label("Welcome back, " + firstName + " " + lastName + " ");
         welcomeLabel.setStyle("-fx-font-family: 'Segoe UI Emoji'; -fx-font-size: 24;");
@@ -107,6 +117,10 @@ public class AdminWindow {
         bottomLeftBox.getChildren().add(cBox); // Add the ComboBox to this HBox
         bottomLeftBox.setPadding(new Insets(10, 10, 10, 10));
         String name = firstName+" "+lastName;
+
+        // Banner in Application
+        VBox bottomContainer = new VBox();
+
 
         Button dashboard = new Button("\uD83D\uDCC5 Dashboard");
         dashboard.getStyleClass().add("btn");
@@ -226,7 +240,6 @@ public class AdminWindow {
                 name,"Profile",
                 "Log Out");
         cBox.setValue(name);
-
         HBox top1_Left = new HBox();
         top1_Left.getChildren().add(lbl);
         top1_Left.setAlignment(Pos.CENTER_LEFT);
@@ -258,8 +271,9 @@ public class AdminWindow {
         VBox topV = new VBox();
         topV.getChildren().addAll(top1, top2);
         bor.setBottom(bottomLeftBox);
-        bor.setTop(topV);
 
+        bor.setTop(topV);
+//        bor.setBottom(bottomContainer);
         VBox left = new VBox();
         bor.setLeft(left);
         left.setStyle("-fx-background-color: linear-gradient(#F8F8FF,#DCDCDC);" +
@@ -522,6 +536,11 @@ public class AdminWindow {
                     arg.show();
                     break;
                 case "Profile":
+
+                    ImageView user_Icon = new ImageView("userIcon.png");
+                    user_Icon.setFitHeight(200);
+                    user_Icon.setFitWidth(200);
+
                     Label nameProfile= new Label();
                     nameProfile.setText("Name :");
                     Label idProfile=new Label();
@@ -535,6 +554,7 @@ public class AdminWindow {
                     leftBox.getChildren().addAll(nameProfile, idProfile, emailProfile, phoneProfile);
                     leftBox.setAlignment(Pos.BASELINE_LEFT);
 
+
                     Label nameP= new Label();
                     nameP.setText(name);
                     Label idP=new Label();
@@ -543,23 +563,39 @@ public class AdminWindow {
                     emailP.setText(email);
                     Label phoneP=new Label();
                     phoneP.setText(""+phoneNumber);
+
                     VBox rightBox= new VBox();
                     rightBox.getChildren().addAll(nameP, idP, emailP, phoneP);
                     rightBox.setAlignment(Pos.TOP_CENTER);
 
-                    HBox box= new HBox();
-                    box.setAlignment(Pos.CENTER);
-                    box.getChildren().addAll(leftBox, rightBox);
+
+                    VBox profileInfo = new VBox(10);  // Tạo VBox mới với khoảng cách là 10
+                    profileInfo.setAlignment(Pos.CENTER);  // Căn giữa các thành phần bên trong
+                    profileInfo.getChildren().add(user_Icon);
+
+                    VBox outerContainer = new VBox(20);  // Vertical box with spacing between elements
+                    outerContainer.setAlignment(Pos.CENTER);
+
+                    HBox detailsBox = new HBox(20);  // Horizontal box to contain left and right details sections
+                    detailsBox.setAlignment(Pos.CENTER);  // Center alignment within the HBox
+                    detailsBox.getChildren().addAll(leftBox, rightBox);
+
+                    outerContainer.getChildren().addAll(profileInfo, detailsBox);
+
+//                    HBox box= new HBox();
+//                    box.setAlignment(Pos.CENTER);
+//                    box.getChildren().addAll(leftBox, rightBox, profileInfo);
                     leftBox.setPrefSize(500,250);
                     leftBox.setMinSize(500,250);
                     leftBox.setMaxSize(500,250);
                     rightBox.setPrefSize(500,250);
                     rightBox.setMinSize(500,250);
                     rightBox.setMaxSize(500,250);
-                    box.setPrefSize(1000,500);
-                    box.setSpacing(20);
+//                    box.setPrefSize(1000,500);
+//                    box.setSpacing(20);
 
-                    bor.setCenter(box);
+
+                    bor.setCenter(outerContainer);
                     break;
             }
         });
