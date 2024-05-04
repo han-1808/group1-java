@@ -49,7 +49,21 @@ CREATE TABLE `issuedbooks` (
 
 LOCK TABLES `issuedbooks` WRITE;
 /*!40000 ALTER TABLE `issuedbooks` DISABLE KEYS */;
-INSERT INTO `issuedbooks` VALUES (1,'DragonBall','Akira','2019-09-07','16:41:39',1,'2019-09-07','21:34:52',1,1),(2,'DragonBall','Akira','2019-09-07','17:39:08',1,NULL,NULL,1,1),(3,'a','a','2019-09-07','17:49:57',1,NULL,NULL,NULL,1),(4,'a','a','2019-09-07','18:16:09',1,NULL,NULL,NULL,1),(5,'a','a','2019-09-07','18:16:09',1,NULL,NULL,NULL,1),(6,'a','a','2019-09-07','18:16:09',1,NULL,NULL,NULL,1),(7,'a','a','2019-09-01','18:17:53',1,'2019-09-08','02:09:30',1,1),(8,'a','a','2019-09-07','18:17:53',1,NULL,NULL,NULL,1),(9,'a','a','2019-09-07','18:17:53',1,NULL,NULL,NULL,1),(10,'a','a','2019-09-07','18:50:51',1,NULL,NULL,NULL,1),(11,'a','a','2019-09-07','19:02:12',1,NULL,NULL,NULL,1),(12,'a','a','2019-09-07','19:02:12',1,NULL,NULL,NULL,1),(13,'a','a','2019-09-07','19:06:07',1,NULL,NULL,NULL,1),(15,'Dragon Ball Super','Akira','2019-09-12','15:08:44',10,NULL,NULL,NULL,3);
+INSERT INTO `issuedbooks` VALUES
+    (1,'Sans Famille','Hector Malot','2023-04-07','16:41:39',1,'2024-04-07','21:34:52',1,1)
+    ,(2,'Le Grand Monde','Pierre Lemaitre','2022-04-07','17:39:08',1,NULL,NULL,1,1)
+                               ,(3,'a','a','2024-04-07','17:49:57',1,NULL,NULL,NULL,1)
+                               ,(4,'a','a','2024-04-07','18:16:09',1,NULL,NULL,NULL,1)
+                               ,(5,'a','a','2024-04-07','18:16:09',1,NULL,NULL,NULL,1)
+                               ,(6,'a','a','2024-04-07','18:16:09',1,NULL,NULL,NULL,1)
+                               ,(7,'a','a','2024-04-21','18:17:53',1,'2019-09-08','02:09:30',1,1)
+                               ,(8,'a','a','2024-04-21','18:17:53',1,NULL,NULL,NULL,1)
+                               ,(9,'a','a','2024-04-21','18:17:53',1,NULL,NULL,NULL,1)
+                               ,(10,'a','a','2024-04-21','18:50:51',1,NULL,NULL,NULL,1)
+                               ,(11,'a','a','2024-04-21','19:02:12',1,NULL,NULL,NULL,1)
+                               ,(12,'a','a','2024-04-21','19:02:12',1,NULL,NULL,NULL,1)
+                               ,(13,'a','a','2024-04-21','19:06:07',1,NULL,NULL,NULL,1)
+                               ,(15,'Danse, danse, danse','Haruki Murakami','2017-09-12','15:08:44',10,NULL,NULL,NULL,3);
 /*!40000 ALTER TABLE `issuedbooks` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
