@@ -7,7 +7,9 @@ import javafx.scene.layout.VBox;
 import java.sql.*;
 import java.util.Calendar;
 import java.util.Date;
+
 public class FinanceWindow {
+
     static private VBox centerVBox;
     static private VBox centerVBoxMember;
     static private TableView<EmployeeFinanceTable> table;
@@ -186,6 +188,7 @@ public class FinanceWindow {
             total.setText(""+sum);
             total.setAlignment(Pos.CENTER_RIGHT);
         });
+
         table.getColumns().addAll(id, name, date, time, transactionType, occasion, amount, enteredBy);
         table.setPrefSize(1150, 510);
         table.setMaxSize(1150, 510);
@@ -344,6 +347,7 @@ public class FinanceWindow {
         centerVBoxMember.setSpacing(10);
 
     }
+
     private static void refreshEmployee(){
         searchBox.clear();
         searchOption.setValue("All");
@@ -471,4 +475,6 @@ public class FinanceWindow {
         dateBox.getChildren().addAll(day,month,year,label,day2,month2,year2);
       return dateBox;
     }
+
 }
+

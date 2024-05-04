@@ -57,6 +57,7 @@
   -fx-background-color: linear-gradient(rgb(242, 86, 86), red);
   -fx-border-color: white;
 }
+
 .label {
   -fx-background-color: white;
   -fx-font-family: 'Ariel', sans-serif;

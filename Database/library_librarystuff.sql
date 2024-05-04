@@ -1,5 +1,8 @@
-
+-- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+--
 -- Host: localhost    Database: library
+-- ------------------------------------------------------
+-- Server version	8.0.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -37,10 +40,8 @@ CREATE TABLE `librarystuff` (
 
 LOCK TABLES `librarystuff` WRITE;
 /*!40000 ALTER TABLE `librarystuff` DISABLE KEYS */;
-INSERT INTO `librarystuff` VALUES (1,'d','h','g.com','e',100,'123')
-                                ,(2,'h','g','da','123',120,'123')
-                                ,(3,'a','b','c','d',14,'12');
-
+INSERT INTO `librarystuff` VALUES (1,'Rajib','Rahman','a@b.com','oi',100,'123'),(2,'Ashiq','Rahman','ashiq2omail.com','123',120,'01737'),(3,'a','b','c','d',14,'12');
+/*!40000 ALTER TABLE `librarystuff` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,3 +52,5 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-09-18 17:14:32

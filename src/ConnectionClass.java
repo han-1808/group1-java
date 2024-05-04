@@ -22,7 +22,7 @@ public class ConnectionClass {
     private HashMap<Integer, String> employees;
     private String url="jdbc:mysql://localhost:3306/library";
     private String username= "root";
-    private String password= "1234";
+    private String password= "123456";
 
     private ConnectionClass() {
 
@@ -64,7 +64,7 @@ public class ConnectionClass {
                 while (resultSet.next()){
                     employees.put(resultSet.getInt("ID"), resultSet.getString("First Name")+ " "+resultSet.getString("Last name"));
                 }
-                ret=true;
+              ret=true;
             } catch (SQLException e) {
                 this.url="jdbc:mysql://localhost:3306/library";
                 this.username= "root";
@@ -702,7 +702,7 @@ public class ConnectionClass {
         String s = "SELECT addrembookhistory.* ,`First Name`,`Last Name` FROM addrembookhistory JOIN librarystuff WHERE `Date`>=\"" + startDate + "\" AND `Date`<=\"" + endDate + "\" " +
                 " AND addrembookhistory.`Acted By`=librarystuff.ID ";
 
-        s = s + "AND `" + cat + "` LIKE \"%" + search + "%\"";
+                s = s + "AND `" + cat + "` LIKE \"%" + search + "%\"";
 
         ResultSet rSet = stat.executeQuery(s);
         while (rSet.next()) {

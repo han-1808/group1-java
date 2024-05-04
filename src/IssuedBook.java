@@ -38,6 +38,7 @@ public class IssuedBook {
     static private HBox search;
     static private ComboBox<String> searchOption;
     static private HBox centerTop;
+    static private Button hideAuthorBtn;
 
     static{
         title = new TableColumn<>("Title");
@@ -158,6 +159,19 @@ public class IssuedBook {
         searchOption.setMaxSize(150, 40);
         searchOption.getItems().addAll("Title", "Author", "Issued by", "Issued To", "Received by");
 
+        // New button to hide the author column
+        hideAuthorBtn = new Button("Toggle Author Visibility");
+        hideAuthorBtn.setMinSize(180, 40);
+        hideAuthorBtn.setPrefSize(180, 40);
+        hideAuthorBtn.setMaxSize(180, 40);
+        hideAuthorBtn.getStyleClass().add("btn-menu");
+        hideAuthorBtn.setStyle("-fx-font-size: 16;");
+
+        // Event Handler for hideAuthorBtn
+        hideAuthorBtn.setOnAction(event -> {
+            author.setVisible(!author.isVisible()); // Toggle visibility
+        });
+
         searchOption.setOnAction(event -> {
             if(!searchOption.getItems().isEmpty()) {
                 switch (searchOption.getValue()) {
@@ -192,12 +206,17 @@ public class IssuedBook {
         centerTop.setMaxSize(1150, 90);
         centerTop.setSpacing(10);
         centerTop.setAlignment(Pos.CENTER_RIGHT);
+        // Assuming you want to add the hideAuthorBtn to the existing centerTop HBox
+        centerTop.getChildren().add(hideAuthorBtn);
 
         centerVBox=new VBox();
         centerVBox.setPadding(new Insets(20, 20, 20, 20));
         centerVBox.maxHeight(100);
         centerVBox.getChildren().addAll(centerTop, table);
         centerVBox.setSpacing(10);
+
+
+
 
 
     }
@@ -214,9 +233,9 @@ public class IssuedBook {
         searchOption.setValue("Title");
 
         Label label = new Label("to");
-        label.setMinSize(20, 35);
-        label.setPrefSize(20, 35);
-        label.setMaxSize(20, 35);
+        label.setMinSize(20, 40);
+        label.setPrefSize(20, 40);
+        label.setMaxSize(20, 40);
         label.getStyleClass().add("label-search");
         label.setAlignment(Pos.CENTER);
 
@@ -227,12 +246,12 @@ public class IssuedBook {
         day.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","Any");
         month.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12","Any");
         year.getItems().addAll("1995","1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","Any");
-        day.setPrefSize(80,25);
-        day.setMaxSize(80,25);
-        month.setPrefSize(80,25);
-        month.setMaxSize(80,25);
-        year.setPrefSize(80,25);
-        year.setMaxSize(80,25);
+        day.setPrefSize(80,40);
+        day.setMaxSize(80,40);
+        month.setPrefSize(80,40);
+        month.setMaxSize(80,40);
+        year.setPrefSize(80,40);
+        year.setMaxSize(80,40);
         day.getStyleClass().add("combo-box-edited");
         month.getStyleClass().add("combo-box-edited");
         year.getStyleClass().add("combo-box-edited");
@@ -247,21 +266,21 @@ public class IssuedBook {
         day2.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","Any");
         month2.getItems().addAll("01","02","03","04","05","06","07","08","09","10","11","12","Any");
         year2.getItems().addAll("1995","1996","1997","1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","Any");
-        day2.setPrefSize(80,25);
-        day2.setMaxSize(80,25);
-        month2.setPrefSize(80,25);
-        month2.setMaxSize(80,25);
-        year2.setPrefSize(80,25);
-        year2.setMaxSize(80,25);
+        day2.setPrefSize(80,40);
+        day2.setMaxSize(80,40);
+        month2.setPrefSize(80,40);
+        month2.setMaxSize(80,40);
+        year2.setPrefSize(80,40);
+        year2.setMaxSize(80,40);
         day2.getStyleClass().add("combo-box-edited");
         month2.getStyleClass().add("combo-box-edited");
         year2.getStyleClass().add("combo-box-edited");
 
         HBox dateBox=new HBox();
         dateBox.setSpacing(2);
-        dateBox.setMinSize(480,35);
-        dateBox.setPrefSize(480,35);
-        dateBox.setMaxSize(480,35);
+        dateBox.setMinSize(480,40);
+        dateBox.setPrefSize(480,40);
+        dateBox.setMaxSize(480,40);
         dateBox.setAlignment(Pos.CENTER_RIGHT);
         dateBox.setStyle("-fx-border-color: linear-gradient(#7FFF00,#32CD32)");
 
